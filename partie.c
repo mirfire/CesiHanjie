@@ -9,6 +9,19 @@ int NouvellePartie(char* nomjoueur) {
     }
     if(difficulte == 0)
         MenuPrincipal(nomjoueur);
+    switch(difficulte) {
+    case FACILE:
+        MenuGrille(FACILE, nomjoueur);
+        break;
+    case MOYEN:
+        MenuGrille(MOYEN, nomjoueur);
+        break;
+    case DIFFICILE:
+        MenuGrille(DIFFICILE, nomjoueur);
+        break;
+    default:
+        break;
+    }
     return 0;
 }
 

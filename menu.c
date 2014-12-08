@@ -18,7 +18,7 @@ int MenuPrincipal(char*nomjoueur) {
             break;
         case 2:
             EffacerEcran();
-            ChargerPartie();
+            ChargerPartie(nomjoueur);
             break;
         case 3:
             EffacerEcran();
@@ -51,7 +51,7 @@ int NomJoueur(char* nomjoueur) {
         NomJoueur(nomjoueur);
     }
     printf("Bienvenue %s", nomjoueur);
-    sleep(2);
+    sleep(1);
     EffacerEcran();
     return 0;
 }
@@ -91,8 +91,19 @@ int MenuDifficulte() {
     return 4;
 }
 
+int MenuGrille(int taille, char* nomjoueur) {
+    EffacerEcran();
+    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    switch(taille) {
+    case FACILE:
+        printf("# Vous êtes en difficulté facile. Vous avez des grilles de 5x5 cases \n");
+        printf("# 1)\n");
+    }
+    return 0;
+}
+
 void EffacerEcran() {
-    printf("\x1B[2J" );
+    printf("\x1B[2J");
 }
 
 void MenuQuitterJeu() {

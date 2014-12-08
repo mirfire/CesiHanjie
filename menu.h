@@ -7,6 +7,7 @@
 int MenuPrincipal(char*);
 int NomJoueur(char*);
 int MenuDifficulte();
+int MenuGrille(int, char*);
 void MenuQuitterJeu();
 
 // HISTORIQUE

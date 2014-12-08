@@ -17,6 +17,8 @@ struct Partie {
     int difficulte;
     int numerogrille;
     int grille;
+    char datedepart[20];
+    char tempsdepart[20];
 };
 
 #endif // HEADER_STRUCTURES
