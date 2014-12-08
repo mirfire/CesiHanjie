@@ -14,7 +14,8 @@ int MenuPrincipal(char*nomjoueur) {
     switch(choix) {
     case 1:
         EffacerEcran();
-        NouvellePartie();
+        if(NouvellePartie() == 0)
+            MenuPrincipal(nomjoueur);
         break;
     case 2:
         EffacerEcran();
