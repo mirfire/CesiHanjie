@@ -1,8 +1,13 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "includes.h"
 
 int main()
 {
-    printf("Hello world!\n");
+    // VARIABLES
+    char nomjoueur[50];
+
+    // FONCTIONS
+    NomJoueur(nomjoueur);
+    MenuPrincipal(nomjoueur);
+    EffacerEcran();
     return 0;
 }

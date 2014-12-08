@@ -31,6 +31,11 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="historique.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="historique.h" />
+		<Unit filename="includes.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -38,6 +43,14 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="menu.h" />
+		<Unit filename="partie.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="partie.h" />
+		<Unit filename="sauvegarde.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sauvegarde.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
