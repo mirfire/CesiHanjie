@@ -1,24 +1,28 @@
 # depslib dependency file v1.0
-1418027809 source:/home/mirfire/dev/CesiHanjie/main.c
+1418032218 source:/home/mirfire/dev/CesiHanjie/main.c
 	"includes.h"
 
-1418027967 source:/home/mirfire/dev/CesiHanjie/menu.c
+1418034746 source:/home/mirfire/dev/CesiHanjie/menu.c
 	"includes.h"
 
-1418027831 /home/mirfire/dev/CesiHanjie/menu.h
+1418033208 /home/mirfire/dev/CesiHanjie/menu.h
 	"includes.h"
 
-1418027139 source:/home/mirfire/dev/CesiHanjie/historique.c
+1418031036 source:/home/mirfire/dev/CesiHanjie/historique.c
+	"includes.h"
 
-1418027795 /home/mirfire/dev/CesiHanjie/includes.h
+1418033330 /home/mirfire/dev/CesiHanjie/includes.h
 	<stdlib.h>
 	<stdio.h>
+	<unistd.h>
+	<string.h>
+	"structures.h"
 	"menu.h"
 	"partie.h"
 	"sauvegarde.h"
 	"historique.h"
 
-1418027862 /home/mirfire/dev/CesiHanjie/partie.h
+1418033548 /home/mirfire/dev/CesiHanjie/partie.h
 	"includes.h"
 
 1418027869 /home/mirfire/dev/CesiHanjie/sauvegarde.h
@@ -27,7 +31,12 @@
 1418027872 /home/mirfire/dev/CesiHanjie/historique.h
 	"includes.h"
 
-1418027998 source:/home/mirfire/dev/CesiHanjie/partie.c
+1418035135 source:/home/mirfire/dev/CesiHanjie/partie.c
+	"includes.h"
 
-1418028027 source:/home/mirfire/dev/CesiHanjie/sauvegarde.c
+1418031023 source:/home/mirfire/dev/CesiHanjie/sauvegarde.c
+	"includes.h"
+
+1418034894 /home/mirfire/dev/CesiHanjie/structures.h
+	"includes.h"
 

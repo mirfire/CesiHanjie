@@ -3,6 +3,9 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+#include "structures.h"
 #include "menu.h"
 #include "partie.h"
 #include "sauvegarde.h"

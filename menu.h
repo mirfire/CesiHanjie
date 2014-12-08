@@ -3,13 +3,16 @@
 
 #include "includes.h"
 
+// Menus
 int MenuPrincipal(char*);
 int NomJoueur(char*);
+int MenuDifficulte();
 void MenuQuitterJeu();
 
 // HISTORIQUE
 int MenuHistorique();
 
+// DIVERS
 void EffacerEcran();
 
 #endif // HEADER_MENU

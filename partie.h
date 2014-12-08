@@ -3,6 +3,7 @@
 
 #include "includes.h"
 
-int NouvellePartie();
+//FONCTIONS
+int NouvellePartie(char*);
 
 #endif // HEADER_PARTIE

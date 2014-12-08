@@ -10,28 +10,31 @@ int MenuPrincipal(char*nomjoueur) {
     printf("# 0) Quitter                                                                   #\n");
     printf("#############################  Entrez votre choix  #############################\n");
     printf("# ");
-    scanf("%d", &choix);
-    switch(choix) {
-    case 1:
-        EffacerEcran();
-        if(NouvellePartie() == 0)
+    if(scanf("%d", &choix) == 1) {
+        switch(choix) {
+        case 1:
+            EffacerEcran();
+            NouvellePartie(nomjoueur);
+            break;
+        case 2:
+            EffacerEcran();
+            ChargerPartie();
+            break;
+        case 3:
+            EffacerEcran();
+            MenuHistorique();
+            break;
+        case 0:
+            MenuQuitterJeu();
+            break;
+        default:
+            EffacerEcran();
             MenuPrincipal(nomjoueur);
-        break;
-    case 2:
-        EffacerEcran();
-        ChargerPartie();
-        break;
-    case 3:
-        EffacerEcran();
-        MenuHistorique();
-        break;
-    case 0:
-        MenuQuitterJeu();
-        break;
-    default:
-        EffacerEcran();
-        MenuPrincipal(nomjoueur);
-        break;
+            break;
+        }
+    }
+    else {
+        printf("ERREUR: Impossible de lire l'entrée.\n");
     }
     return 0;
 }
@@ -43,10 +46,49 @@ int NomJoueur(char* nomjoueur) {
     printf("# ");
     fgets(nomjoueur, 50, stdin);
     EffacerEcran();
+    if(strlen(nomjoueur) < 4) {
+        printf("ERREUR: Rentrez un nom supérieur à 3 caractères.\n");
+        NomJoueur(nomjoueur);
+    }
     printf("Bienvenue %s", nomjoueur);
     sleep(2);
     EffacerEcran();
     return 0;
+}
+
+int MenuDifficulte() {
+    int choix;
+    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    printf("# Choisissez votre difficulté :                                                #\n");
+    printf("# 1) Facile                                                                    #\n");
+    printf("# 2) Normal                                                                    #\n");
+    printf("# 3) Difficile                                                                 #\n");
+    printf("# 0) Retour                                                                    #\n");
+    printf("#############################  Entrez votre choix  #############################\n");
+    printf("# ");
+    if(scanf("%d", &choix) == 1) {
+        switch(choix) {
+        case 1:
+            return FACILE;
+            break;
+        case 2:
+            return MOYEN;
+            break;
+        case 3:
+            return DIFFICILE;
+            break;
+        case 0:
+            return 4;
+            break;
+        default:
+            return 4;
+            break;
+        }
+    }
+    else {
+        printf("ERREUR : Impossible de lire l'entrée.\n");
+    }
+    return 4;
 }
 
 void EffacerEcran() {
