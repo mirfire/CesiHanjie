@@ -1,4 +1,6 @@
-CesiHanjie ![Compilation](https://travis-ci.org/r0cknfire/CesiHanjie.svg "Compilation")
+CesiHanjie
 ==========
 
 Projet réalisé par MSRog, Rockfire
+
+Projet codé en C
