@@ -7,10 +7,11 @@
 int MenuPrincipal(char*);
 int NomJoueur(char*);
 int MenuDifficulte();
+int MenuGrille(int, char*);
 void MenuQuitterJeu();
 
 // HISTORIQUE
-int MenuHistorique();
+int MenuHistorique(char *);
 
 // DIVERS
 void EffacerEcran();

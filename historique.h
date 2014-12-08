@@ -3,4 +3,10 @@
 
 #include "includes.h"
 
+void AfficherHistorique();
+
+void HistoriqueCroissant();
+
+void HistoriqueDecroissant();
+
 #endif // HEADER_HISTORIQUE

@@ -5,5 +5,7 @@
 
 //FONCTIONS
 int NouvellePartie(char*);
+int ChargerGrille(int, int);
+
 
 #endif // HEADER_PARTIE

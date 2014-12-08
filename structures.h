@@ -6,7 +6,7 @@
 // ENUMS
 typedef enum Difficulte Difficulte;
 enum Difficulte {
-    FACILE, MOYEN, DIFFICILE // FACILE = 0, MOYEN = 1, DIFFICILE = 2
+    FACILE = 1, MOYEN = 2, DIFFICILE = 3
 };
 
 
@@ -17,6 +17,8 @@ struct Partie {
     int difficulte;
     int numerogrille;
     int grille;
+    char datedepart[20];
+    char tempsdepart[20];
 };
 
 #endif // HEADER_STRUCTURES

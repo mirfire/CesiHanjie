@@ -51,6 +51,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="sauvegarde.h" />
+		<Unit filename="structures.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
