@@ -4,7 +4,6 @@ int main()
 {
     // VARIABLES
     char nomjoueur[50];
-
     // FONCTIONS
     NomJoueur(nomjoueur);
     MenuPrincipal(nomjoueur);

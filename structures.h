@@ -6,7 +6,7 @@
 // ENUMS
 typedef enum Difficulte Difficulte;
 enum Difficulte {
-    FACILE, MOYEN, DIFFICILE // FACILE = 0, MOYEN = 1, DIFFICILE = 2
+    FACILE = 1, MOYEN = 2, DIFFICILE = 3
 };
 
 

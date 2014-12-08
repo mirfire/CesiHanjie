@@ -22,7 +22,7 @@ int MenuPrincipal(char*nomjoueur) {
             break;
         case 3:
             EffacerEcran();
-            MenuHistorique();
+            MenuHistorique(nomjoueur);
             break;
         case 0:
             MenuQuitterJeu();
@@ -91,13 +91,40 @@ int MenuDifficulte() {
     return 4;
 }
 
-int MenuGrille(int taille, char* nomjoueur) {
+int MenuGrille(int difficulte, char* nomjoueur) {
     EffacerEcran();
+    int choix;
     printf("##############################  Cesi Hanjie v0.1  ##############################\n");
-    switch(taille) {
+    switch(choix) {
     case FACILE:
         printf("# Vous êtes en difficulté facile. Vous avez des grilles de 5x5 cases \n");
-        printf("# 1)\n");
+        printf("# 1) A\n");
+        printf("# 2) Coeur\n");
+        printf("# 3) Diamant\n");
+        printf("# 0) Retour\n");
+        if(scanf("%d", &choix) == 1) {
+            switch(choix) {
+            case 1:
+                ChargerGrille(difficulte, choix);
+                break;
+            case 2:
+                ChargerGrille(difficulte, choix);
+                break;
+            case 3:
+                ChargerGrille(difficulte, choix);
+                break;
+            case 0:
+                MenuPrincipal(nomjoueur);
+                break;
+            default:
+                MenuPrincipal(nomjoueur);
+                break;
+            }
+        }
+        else {
+            printf("ERREUR: Entrée invalide.\n");
+            MenuGrille(difficulte, nomjoueur);
+        }
     }
     return 0;
 }
@@ -110,6 +137,38 @@ void MenuQuitterJeu() {
     exit(0);
 }
 
-int MenuHistorique() {
+int MenuHistorique(char* nomjoueur) {
+    int choix;
+    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    printf("# 1) Afficher l'historique                                                     #\n");
+    printf("# 2) Afficher l'historique trié par ordre croissant                            #\n");
+    printf("# 3) Afficher l'historique trié par ordre décroissant                          #\n");
+    printf("# 0) Retour                                                                    #\n");
+    printf("#############################  Entrez votre choix  #############################\n");
+    printf("# ");
+    scanf("%d", &choix);
+    switch(choix) {
+        case 1:
+            EffacerEcran();
+            AfficherHistorique();
+            break;
+        case 2:
+            EffacerEcran();
+            HistoriqueCroissant();
+            break;
+        case 3:
+            EffacerEcran();
+            HistoriqueDecroissant();
+            break;
+        case 0:
+            EffacerEcran();
+            MenuPrincipal(nomjoueur);
+            break;
+        default:
+            EffacerEcran();
+            MenuHistorique(nomjoueur);
+            break;
+    }
+    MenuHistorique(nomjoueur);
     return 0;
 }
