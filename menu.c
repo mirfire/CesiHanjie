@@ -18,7 +18,7 @@ int MenuPrincipal(char*nomjoueur) {
             break;
         case 2:
             EffacerEcran();
-            ChargerPartie();
+            ChargerPartie(nomjoueur);
             break;
         case 3:
             EffacerEcran();

@@ -3,6 +3,7 @@
 
 #include "includes.h"
 
-int ChargerPartie();
+int ChargerPartie(char*);
+
 
 #endif // HEADER_SAUVEGARDE
