@@ -1,5 +1,6 @@
 #include "includes.h"
 
+<<<<<<< HEAD
 int test() {
  FILE* fichier = NULL;
     fichier = fopen("fichiersauvegarge", "r+");
@@ -12,6 +13,11 @@ int test() {
         // On affiche un message d'erreur si on veut
         printf("Impossible d'ouvrir le fichier test.txt");
     }
+=======
+int ChargerPartie(char* nomjoueur) {
+    printf("%s", nomjoueur);
+    sleep(55);
+>>>>>>> 579e3ff047b8e5fb5cdcd79c603d4d8673296f7d
     return 0;
 
 }
