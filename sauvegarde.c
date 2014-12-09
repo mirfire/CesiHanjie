@@ -16,4 +16,4 @@ int test() {
 
 }
 
-
+int ChargerPartie(char * tableau) {return 0;}

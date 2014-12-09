@@ -6,7 +6,7 @@
 // Menus
 int MenuPrincipal(char*);
 int NomJoueur(char*);
-int MenuDifficulte();
+int MenuDifficulte(char*);
 int MenuGrille(int, char*);
 void MenuQuitterJeu();
 

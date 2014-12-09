@@ -56,7 +56,7 @@ int NomJoueur(char* nomjoueur) {
     return 0;
 }
 
-int MenuDifficulte() {
+int MenuDifficulte(char* nomjoueur) {
     int choix;
     printf("##############################  Cesi Hanjie v0.1  ##############################\n");
     printf("# Choisissez votre difficulté :                                                #\n");
@@ -78,10 +78,12 @@ int MenuDifficulte() {
             return DIFFICILE;
             break;
         case 0:
-            return 4;
+            EffacerEcran();
+            MenuPrincipal(nomjoueur);
             break;
         default:
-            return 4;
+            EffacerEcran();
+            MenuDifficulte(nomjoueur);
             break;
         }
     }
@@ -146,29 +148,31 @@ int MenuHistorique(char* nomjoueur) {
     printf("# 0) Retour                                                                    #\n");
     printf("#############################  Entrez votre choix  #############################\n");
     printf("# ");
-    scanf("%d", &choix);
-    switch(choix) {
-        case 1:
-            EffacerEcran();
-            AfficherHistorique();
-            break;
-        case 2:
-            EffacerEcran();
-            HistoriqueCroissant();
-            break;
-        case 3:
-            EffacerEcran();
-            HistoriqueDecroissant();
-            break;
-        case 0:
-            EffacerEcran();
-            MenuPrincipal(nomjoueur);
-            break;
-        default:
-            EffacerEcran();
-            MenuHistorique(nomjoueur);
-            break;
+    if (scanf("%d", &choix)) {
+        switch(choix) {
+            case 1:
+                EffacerEcran();
+                AfficherHistorique();
+                break;
+            case 2:
+                EffacerEcran();
+                HistoriqueCroissant();
+                break;
+            case 3:
+                EffacerEcran();
+                HistoriqueDecroissant();
+                break;
+            case 0:
+                EffacerEcran();
+                MenuPrincipal(nomjoueur);
+                break;
+            default:
+                EffacerEcran();
+                MenuHistorique(nomjoueur);
+                break;
+        }
     }
+
     MenuHistorique(nomjoueur);
     return 0;
 }

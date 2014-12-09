@@ -2,7 +2,7 @@
 
 int NouvellePartie(char* nomjoueur) {
     int difficulte;
-    difficulte = MenuDifficulte(); // On demande la difficulté
+    difficulte = MenuDifficulte(nomjoueur); // On demande la difficulté
     if((difficulte != (FACILE || MOYEN || DIFFICILE)) && difficulte != 0) { // On vérifie s'il y a une erreur dans le retour
         printf("ERREUR: Le choix n'est pas valide !\n"); // Affichage de l'erreur
         NouvellePartie(nomjoueur); // Retour au début
