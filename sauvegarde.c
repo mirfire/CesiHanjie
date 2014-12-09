@@ -18,7 +18,7 @@ int test() {
     }
     else
     {
-        // On affiche un message d'erreur si on veut
+        // On affiche un message d'\x1b[31mERREUR\x1b[0m si on veut
         printf("Impossible d'ouvrir le fichier test.txt");
     }
     return 0;

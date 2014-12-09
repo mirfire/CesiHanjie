@@ -31,7 +31,7 @@ int NomJoueur(char* nomjoueur) {
     fgets(nomjoueur, 50, stdin);  // Fgets permet de tronquer automatiquement s'il y a plus de 50 caractères
     EffacerEcran();
     if(strlen(nomjoueur) < 4) {
-        printf("ERREUR: Rentrez un nom supérieur à 3 caractères.\n");
+        printf("\x1b[31mERREUR\x1b[0m: Rentrez un nom supérieur à 3 caractères.\n");
         NomJoueur(nomjoueur);
     }
     EffacerEcran();
@@ -74,7 +74,7 @@ int MenuPrincipal(char*nomjoueur) { // Menu principal
         }
     }
     else {
-        printf("ERREUR: Impossible de lire l'entrée.\n");
+        printf("\x1b[31mERREUR\x1b[0m: Impossible de lire l'entrée.\n");
     }
     return 0;
 }
@@ -114,7 +114,7 @@ int MenuDifficulte(char* nomjoueur) { // Menu de choix de la difficulté
         }
     }
     else {
-        printf("ERREUR : Impossible de lire l'entrée.\n");
+        printf("\x1b[31mERREUR\x1b[0m : Impossible de lire l'entrée.\n");
     }
     return 4;
 }
@@ -144,7 +144,7 @@ int MenuGrille(int difficulte, char* nomjoueur) {
             }
         }
         else {
-            printf("ERREUR: Entrée invalide.\n");
+            printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
             MenuGrille(difficulte, nomjoueur);
         }
     case MOYEN:
@@ -166,7 +166,7 @@ int MenuGrille(int difficulte, char* nomjoueur) {
             }
         }
         else {
-            printf("ERREUR: Entrée invalide.\n");
+            printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
             MenuGrille(difficulte, nomjoueur);
         }
     case DIFFICILE:
@@ -188,7 +188,7 @@ int MenuGrille(int difficulte, char* nomjoueur) {
             }
         }
         else {
-            printf("ERREUR: Entrée invalide.\n");
+            printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
             MenuGrille(difficulte, nomjoueur);
         }
     }
