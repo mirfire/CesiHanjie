@@ -1,5 +1,23 @@
 #include "includes.h"
 
+// Menus
+int NomJoueur(char* nomjoueur) {
+    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    printf("# Quel est votre nom ?                                                         #\n");
+    printf("#############################  Entrez votre choix  #############################\n");
+    printf("# ");
+    fgets(nomjoueur, 50, stdin);
+    EffacerEcran();
+    if(strlen(nomjoueur) < 4) {
+        printf("ERREUR: Rentrez un nom supérieur à 3 caractères.\n");
+        NomJoueur(nomjoueur);
+    }
+    printf("Bienvenue %s", nomjoueur);
+    sleep(1);
+    EffacerEcran();
+    return 0;
+}
+
 int MenuPrincipal(char*nomjoueur) {
     int choix = 0;
     printf("##############################  Cesi Hanjie v0.1  ##############################\n");
@@ -11,6 +29,7 @@ int MenuPrincipal(char*nomjoueur) {
     printf("#############################  Entrez votre choix  #############################\n");
     printf("# ");
     if(scanf("%d", &choix) == 1) {
+        ClearBuffer();
         switch(choix) {
         case 1:
             EffacerEcran();
@@ -18,7 +37,7 @@ int MenuPrincipal(char*nomjoueur) {
             break;
         case 2:
             EffacerEcran();
-            ChargerPartie(nomjoueur);
+            MenuSauvegarde(nomjoueur);
             break;
         case 3:
             EffacerEcran();
@@ -39,23 +58,7 @@ int MenuPrincipal(char*nomjoueur) {
     return 0;
 }
 
-int NomJoueur(char* nomjoueur) {
-    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
-    printf("# Quel est votre nom ?                                                         #\n");
-    printf("#############################  Entrez votre choix  #############################\n");
-    printf("# ");
-    fgets(nomjoueur, 50, stdin);
-    EffacerEcran();
-    if(strlen(nomjoueur) < 4) {
-        printf("ERREUR: Rentrez un nom supérieur à 3 caractères.\n");
-        NomJoueur(nomjoueur);
-    }
-    printf("Bienvenue %s", nomjoueur);
-    sleep(1);
-    EffacerEcran();
-    return 0;
-}
-
+// Jeu
 int MenuDifficulte(char* nomjoueur) {
     int choix;
     printf("##############################  Cesi Hanjie v0.1  ##############################\n");
@@ -67,6 +70,7 @@ int MenuDifficulte(char* nomjoueur) {
     printf("#############################  Entrez votre choix  #############################\n");
     printf("# ");
     if(scanf("%d", &choix) == 1) {
+        ClearBuffer();
         switch(choix) {
         case 1:
             return FACILE;
@@ -105,6 +109,7 @@ int MenuGrille(int difficulte, char* nomjoueur) {
         printf("# 3) Diamant\n");
         printf("# 0) Retour\n");
         if(scanf("%d", &choix) == 1) {
+            ClearBuffer();
             switch(choix) {
             case 1:
                 ChargerGrille(difficulte, choix);
@@ -131,14 +136,33 @@ int MenuGrille(int difficulte, char* nomjoueur) {
     return 0;
 }
 
-void EffacerEcran() {
-    printf("\x1B[2J");
+// Sauvegarde
+int MenuSauvegarde(char* nomjoueur) {
+    char reponse;
+    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    printf("# Voulez vraiment charger une partie ?\n");
+    printf("# O/N \n");
+    printf("# ");
+    scanf("%c", &reponse);
+    ClearBuffer();
+    if((reponse == 79) || (reponse == 111)) {
+        // ChargerPartie();
+        printf("# Ici bientôt, le chargement de la partie.\n");
+        printf("# Retour au menu...\n");
+        sleep(2);
+        EffacerEcran();
+        MenuPrincipal(nomjoueur);
+    }
+    else {
+        printf("# Retour au menu...\n");
+        sleep(2);
+        EffacerEcran();
+        MenuPrincipal(nomjoueur);
+    }
+    return 0;
 }
 
-void MenuQuitterJeu() {
-    exit(0);
-}
-
+// Historique
 int MenuHistorique(char* nomjoueur) {
     int choix;
     printf("##############################  Cesi Hanjie v0.1  ##############################\n");
@@ -149,6 +173,7 @@ int MenuHistorique(char* nomjoueur) {
     printf("#############################  Entrez votre choix  #############################\n");
     printf("# ");
     if (scanf("%d", &choix)) {
+        ClearBuffer();
         switch(choix) {
             case 1:
                 EffacerEcran();
@@ -175,4 +200,19 @@ int MenuHistorique(char* nomjoueur) {
 
     MenuHistorique(nomjoueur);
     return 0;
+}
+
+// Divers
+void EffacerEcran() {
+    printf("\x1B[2J");
+}
+
+void ClearBuffer(void) {
+    int c;
+    while ((c=getchar()) != '\n' && c != EOF)
+        ;
+}
+
+void MenuQuitterJeu() {
+    exit(0);
 }

@@ -4,17 +4,24 @@
 #include "includes.h"
 
 // Menus
-int MenuPrincipal(char*);
 int NomJoueur(char*);
+int MenuPrincipal(char*);
+
+// Jeu
 int MenuDifficulte(char*);
 int MenuGrille(int, char*);
-void MenuQuitterJeu();
+
+// Sauvegarde
+int MenuSauvegarde(char*);
 
 // HISTORIQUE
-int MenuHistorique(char *);
+int MenuHistorique(char*);
 
 // DIVERS
 void EffacerEcran();
+void ClearBuffer();
+void MenuQuitterJeu();
+
 
 #endif // HEADER_MENU
 
