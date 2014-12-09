@@ -119,13 +119,14 @@ int MenuDifficulte(char* nomjoueur) { // Menu de choix de la difficulté
     return 4;
 }
 
-int MenuGrille(int difficulte, char* nomjoueur) {
+int MenuGrille(int difficulte, char* nomjoueur) { // Menu de choix des grilles en fonction de la difficulté
     EffacerEcran();
     int choix;
-    SplahScreen();
-    printf("##############################  Cesi Hanjie v0.2  ##############################\n"); // Menu de choix des grilles en fonction de la difficulté
-    switch(choix) {
+    switch(difficulte) {
     case FACILE:
+        EffacerEcran();
+        SplahScreen();
+        printf("##############################  Cesi Hanjie v0.2  ##############################\n");
         printf("# Vous êtes en difficulté facile. Vous avez des grilles de 5x5 cases \n");
         printf("# 1) A\n");
         printf("# 2) Coeur\n");
@@ -139,8 +140,14 @@ int MenuGrille(int difficulte, char* nomjoueur) {
                 EffacerEcran();
                 ChargerGrille(difficulte, choix);
             }
-            else {
+            else if(choix == 0) {
+                EffacerEcran();
                 MenuDifficulte(nomjoueur);
+            }
+            else {
+                EffacerEcran();
+                printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
+                MenuGrille(difficulte, nomjoueur);
             }
         }
         else {
@@ -148,10 +155,13 @@ int MenuGrille(int difficulte, char* nomjoueur) {
             MenuGrille(difficulte, nomjoueur);
         }
     case MOYEN:
+        EffacerEcran();
+        SplahScreen();
+        printf("##############################  Cesi Hanjie v0.2  ##############################\n");
         printf("# Vous êtes en difficulté moyenne. Vous avez des grilles de 10x10 cases \n");
-        printf("# 1) ???\n"); // TODO
+        printf("# 1) Etoile\n");
         printf("# 2) Coeur\n");
-        printf("# 3) ???\n"); // TODO
+        printf("# 3) Smiley\n");
         printf("# 0) Retour\n");
         printf("#############################  Entrez votre choix  #############################\n");
         printf("# ");
@@ -161,8 +171,14 @@ int MenuGrille(int difficulte, char* nomjoueur) {
                 EffacerEcran();
                 ChargerGrille(difficulte, choix);
             }
-            else {
+            else if(choix == 0) {
+                EffacerEcran();
                 MenuDifficulte(nomjoueur);
+            }
+            else {
+                EffacerEcran();
+                printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
+                MenuGrille(difficulte, nomjoueur);
             }
         }
         else {
@@ -170,10 +186,13 @@ int MenuGrille(int difficulte, char* nomjoueur) {
             MenuGrille(difficulte, nomjoueur);
         }
     case DIFFICILE:
+        EffacerEcran();
+        SplahScreen();
+        printf("##############################  Cesi Hanjie v0.2  ##############################\n");
         printf("# Vous êtes en difficulté difficile. Vous avez des grilles de 15x15 cases \n");
-        printf("# 1) ???\n"); // TODO
-        printf("# 2) ???\n"); // TODO
-        printf("# 3) ???\n"); // TODO
+        printf("# 1) Champignon\n");
+        printf("# 2) Creeper\n");
+        printf("# 3) Note\n");
         printf("# 0) Retour\n");
         printf("#############################  Entrez votre choix  #############################\n");
         printf("# ");
@@ -183,8 +202,14 @@ int MenuGrille(int difficulte, char* nomjoueur) {
                 EffacerEcran();
                 ChargerGrille(difficulte, choix);
             }
-            else {
+            else if(choix == 0) {
+                EffacerEcran();
                 MenuDifficulte(nomjoueur);
+            }
+            else {
+                EffacerEcran();
+                printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
+                MenuGrille(difficulte, nomjoueur);
             }
         }
         else {
