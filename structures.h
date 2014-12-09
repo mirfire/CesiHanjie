@@ -20,15 +20,20 @@ enum Difficulte {
 
 
 // STRUCTURES
-typedef struct Partie Partie;
-struct Partie {
+typedef struct DonneesPartie DonneesPartie;
+struct DonneesPartie {
     char nomjoueur[50];
     int difficulte;
-    int numerogrille;
     int grille;
     char datedepart[20];
     char tempsdepart[20];
+    int ** casegrises[];
 };
+/* Pour le stockage de la partie, on stocke la difficulté et la grille.
+ * Du coup, pour vérifier si c'est bon, il suffit de recharger la grille
+ * en mémoire et de comparer le tablea casegrises au tableau de la grille
+ */
+
 
 #endif // HEADER_STRUCTURES
 

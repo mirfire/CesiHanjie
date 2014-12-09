@@ -29,13 +29,18 @@ int NouvellePartie(char* nomjoueur) {
             MenuGrille(DIFFICILE, nomjoueur);
             break;
         default:
+            NouvellePartie(nomjoueur);
             break;
     }
     return 0;
 }
 
 int ChargerGrille(int difficulte, int choix) {
-    printf("Chargement de la grille %d, pour la difficulté %d.", difficulte, choix);
-    sleep(5);
+    char chemin[100];
+    printf("# Chargement de la grille %d, pour la difficulté %d.\n", choix, difficulte);
+    sleep(1);
     return 0;
 }
+
+
+
