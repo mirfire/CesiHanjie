@@ -4,6 +4,7 @@
 #include "includes.h"
 
 // Menus
+void SplahScreen();
 int NomJoueur(char*);
 int MenuPrincipal(char*);
 

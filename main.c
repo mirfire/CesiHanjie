@@ -5,6 +5,7 @@ int main()
     // VARIABLES
     char nomjoueur[50];
     // FONCTIONS
+    SplahScreen();
     NomJoueur(nomjoueur);
     MenuPrincipal(nomjoueur);
     EffacerEcran();

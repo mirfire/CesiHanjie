@@ -1,8 +1,29 @@
+/***
+ *       ___         _                    _ _
+ *      / __\___ ___(_) /\  /\__ _ _ __  (_(_) ___
+ *     / /  / _ / __| |/ /_/ / _` | '_ \ | | |/ _ \
+ *    / /__|  __\__ | / __  | (_| | | | || | |  __/
+ *    \____/\___|___|_\/ /_/ \__,_|_| |__/ |_|\___|
+ *                                     |__/
+ */
 #include "includes.h"
 
 // Menus
+void SplahScreen() {
+printf("                   ___         _                    _ _       \n");
+printf("                  / __\\___ ___(_) /\\  /\\__ _ _ __  (_(_) ___  \n");
+printf("                 / /  / _ / __| |/ /_/ / _` | '_ \\ | | |/ _ \\ \n");
+printf("                / /__|  __\\__ | / __  | (_| | | | || | |  __/ \n");
+printf("                \\____/\\___|___|_\\/ /_/ \\__,_|_| |__/ |_|\\___| \n");
+printf("                                                |__/       v0.2\n");
+printf("\n");
+
+
+
+}
+
 int NomJoueur(char* nomjoueur) {
-    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     printf("# Quel est votre nom ?                                                         #\n");
     printf("#############################  Entrez votre choix  #############################\n");
     printf("# ");
@@ -20,7 +41,8 @@ int NomJoueur(char* nomjoueur) {
 
 int MenuPrincipal(char*nomjoueur) {
     int choix = 0;
-    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    SplahScreen();
+    printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     printf("# Joueur : %s\n", nomjoueur);
     printf("# 1) Nouvelle Partie                                                           #\n");
     printf("# 2) Charger Partie                                                            #\n");
@@ -61,7 +83,7 @@ int MenuPrincipal(char*nomjoueur) {
 // Jeu
 int MenuDifficulte(char* nomjoueur) {
     int choix;
-    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     printf("# Choisissez votre difficulté :                                                #\n");
     printf("# 1) Facile                                                                    #\n");
     printf("# 2) Normal                                                                    #\n");
@@ -100,7 +122,7 @@ int MenuDifficulte(char* nomjoueur) {
 int MenuGrille(int difficulte, char* nomjoueur) {
     EffacerEcran();
     int choix;
-    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     switch(choix) {
     case FACILE:
         printf("# Vous êtes en difficulté facile. Vous avez des grilles de 5x5 cases \n");
@@ -110,22 +132,12 @@ int MenuGrille(int difficulte, char* nomjoueur) {
         printf("# 0) Retour\n");
         if(scanf("%d", &choix) == 1) {
             ClearBuffer();
-            switch(choix) {
-            case 1:
+            if((choix == 1) || (choix == 2) || (choix == 3)) {
+                EffacerEcran();
                 ChargerGrille(difficulte, choix);
-                break;
-            case 2:
-                ChargerGrille(difficulte, choix);
-                break;
-            case 3:
-                ChargerGrille(difficulte, choix);
-                break;
-            case 0:
-                MenuPrincipal(nomjoueur);
-                break;
-            default:
-                MenuPrincipal(nomjoueur);
-                break;
+            }
+            else {
+                MenuDifficulte(nomjoueur);
             }
         }
         else {
@@ -139,7 +151,7 @@ int MenuGrille(int difficulte, char* nomjoueur) {
 // Sauvegarde
 int MenuSauvegarde(char* nomjoueur) {
     char reponse;
-    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     printf("# Voulez vraiment charger une partie ?\n");
     printf("# O/N \n");
     printf("# ");
@@ -165,7 +177,7 @@ int MenuSauvegarde(char* nomjoueur) {
 // Historique
 int MenuHistorique(char* nomjoueur) {
     int choix;
-    printf("##############################  Cesi Hanjie v0.1  ##############################\n");
+    printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     printf("# 1) Afficher l'historique                                                     #\n");
     printf("# 2) Afficher l'historique trié par ordre croissant                            #\n");
     printf("# 3) Afficher l'historique trié par ordre décroissant                          #\n");
