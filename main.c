@@ -12,11 +12,10 @@
 int main()
 {
     // VARIABLES
-    char nomjoueur[50];
+    char nomjoueur[50]; // Définition de la variables du nom du joueur
     // FONCTIONS
     SplahScreen();
-    NomJoueur(nomjoueur);
-    MenuPrincipal(nomjoueur);
-    EffacerEcran();
+    NomJoueur(nomjoueur); // On demande le nom du joueur
+    MenuPrincipal(nomjoueur); // Lancement du menu
     return 0;
 }

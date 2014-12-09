@@ -10,7 +10,7 @@
 #include "includes.h"
 
 // Menus
-void SplahScreen() {
+void SplahScreen() { // Pour faire plus joli, on met un petit logo
 printf("                   ___         _                    _ _       \n");
 printf("                  / __\\___ ___(_) /\\  /\\__ _ _ __  (_(_) ___  \n");
 printf("                 / /  / _ / __| |/ /_/ / _` | '_ \\ | | |/ _ \\ \n");
@@ -24,11 +24,11 @@ printf("\n");
 }
 
 int NomJoueur(char* nomjoueur) {
-    printf("##############################  Cesi Hanjie v0.2  ##############################\n");
-    printf("# Quel est votre nom ?                                                         #\n");
+    printf("##############################  Cesi Hanjie v0.2  ##############################\n"); // On demande le nom du joueur
+    printf("# Quel est votre nom ?                                                         #\n"); // pour le stocker dans un tableau
     printf("#############################  Entrez votre choix  #############################\n");
     printf("# ");
-    fgets(nomjoueur, 50, stdin);
+    fgets(nomjoueur, 50, stdin);  // Fgets permet de tronquer automatiquement s'il y a plus de 50 caractères
     EffacerEcran();
     if(strlen(nomjoueur) < 4) {
         printf("ERREUR: Rentrez un nom supérieur à 3 caractères.\n");
@@ -40,7 +40,7 @@ int NomJoueur(char* nomjoueur) {
     return 0;
 }
 
-int MenuPrincipal(char*nomjoueur) {
+int MenuPrincipal(char*nomjoueur) { // Menu principal
     int choix = 0;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
@@ -82,7 +82,7 @@ int MenuPrincipal(char*nomjoueur) {
 }
 
 // Jeu
-int MenuDifficulte(char* nomjoueur) {
+int MenuDifficulte(char* nomjoueur) { // Menu de choix de la difficulté
     int choix;
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     printf("# Choisissez votre difficulté :                                                #\n");
@@ -123,7 +123,7 @@ int MenuDifficulte(char* nomjoueur) {
 int MenuGrille(int difficulte, char* nomjoueur) {
     EffacerEcran();
     int choix;
-    printf("##############################  Cesi Hanjie v0.2  ##############################\n");
+    printf("##############################  Cesi Hanjie v0.2  ##############################\n"); // Menu de choix des grilles en fonction de la difficulté
     switch(choix) {
     case FACILE:
         printf("# Vous êtes en difficulté facile. Vous avez des grilles de 5x5 cases \n");
@@ -152,7 +152,7 @@ int MenuGrille(int difficulte, char* nomjoueur) {
 // Sauvegarde
 int MenuSauvegarde(char* nomjoueur) {
     char reponse;
-    printf("##############################  Cesi Hanjie v0.2  ##############################\n");
+    printf("##############################  Cesi Hanjie v0.2  ##############################\n"); // Menu de confirmation de chargement de la sauvegarde
     printf("# Voulez vraiment charger une partie ?\n");
     printf("# O/N \n");
     printf("# ");
@@ -176,7 +176,7 @@ int MenuSauvegarde(char* nomjoueur) {
 }
 
 // Historique
-int MenuHistorique(char* nomjoueur) {
+int MenuHistorique(char* nomjoueur) { // Menu pour afficher l'historique, et lancer le tri de celui ci
     int choix;
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     printf("# 1) Afficher l'historique                                                     #\n");
@@ -210,22 +210,21 @@ int MenuHistorique(char* nomjoueur) {
                 break;
         }
     }
-
     MenuHistorique(nomjoueur);
     return 0;
 }
 
 // Divers
-void EffacerEcran() {
+void EffacerEcran() { // Permet d'effacer l'écran sans avoir recours à un appel système
     printf("\x1B[2J");
 }
 
-void ClearBuffer(void) {
+void ClearBuffer(void) { // ClearBuffer() permet d'éviter que scanf bug à cause d'un buffer plein
     int c;
     while ((c=getchar()) != '\n' && c != EOF)
         ;
 }
 
-void MenuQuitterJeu() {
+void MenuQuitterJeu() { // Permet de quitter le jeu avec le code 0
     exit(0);
 }
