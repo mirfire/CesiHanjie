@@ -25,8 +25,12 @@ struct DonneesPartie {
     char nomjoueur[50];
     int difficulte;
     int grille;
-    char datedepart[20];
-    char tempsdepart[20];
+    char heuredepart[2];
+    char minutedepart[2];
+    char secondedepart[2];
+    char heurefin[2];
+    char minutefin[2];
+    char secondefin[2];
     int ** casegrises[];
 };
 /* Pour le stockage de la partie, on stocke la difficulté et la grille.
@@ -34,6 +38,9 @@ struct DonneesPartie {
  * en mémoire et de comparer le tablea casegrises au tableau de la grille
  */
 
+
+// FONCTION STRUCTURE
+void InitialiserPartie(DonneesPartie*);
 
 #endif // HEADER_STRUCTURES
 

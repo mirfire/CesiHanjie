@@ -13,7 +13,10 @@ int main()
 {
     // VARIABLES
     char nomjoueur[50]; // Définition de la variables du nom du joueur
+    DonneesPartie Partie;
+
     // FONCTIONS
+    InitialiserPartie(&Partie);
     SplahScreen();
     NomJoueur(nomjoueur); // On demande le nom du joueur
     MenuPrincipal(nomjoueur); // Lancement du menu
