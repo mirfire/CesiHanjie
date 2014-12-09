@@ -34,8 +34,6 @@ int NomJoueur(char* nomjoueur) {
         printf("ERREUR: Rentrez un nom supérieur à 3 caractères.\n");
         NomJoueur(nomjoueur);
     }
-    printf("Bienvenue %s", nomjoueur);
-    sleep(1);
     EffacerEcran();
     return 0;
 }
@@ -44,7 +42,7 @@ int MenuPrincipal(char*nomjoueur) { // Menu principal
     int choix = 0;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
-    printf("# Joueur : %s\n", nomjoueur);
+    printf("# Joueur : %s", nomjoueur);
     printf("# 1) Nouvelle Partie                                                           #\n");
     printf("# 2) Charger Partie                                                            #\n");
     printf("# 3) Voir l'historique                                                         #\n");
@@ -84,6 +82,7 @@ int MenuPrincipal(char*nomjoueur) { // Menu principal
 // Jeu
 int MenuDifficulte(char* nomjoueur) { // Menu de choix de la difficulté
     int choix;
+    SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     printf("# Choisissez votre difficulté :                                                #\n");
     printf("# 1) Facile                                                                    #\n");
@@ -123,6 +122,7 @@ int MenuDifficulte(char* nomjoueur) { // Menu de choix de la difficulté
 int MenuGrille(int difficulte, char* nomjoueur) {
     EffacerEcran();
     int choix;
+    SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n"); // Menu de choix des grilles en fonction de la difficulté
     switch(choix) {
     case FACILE:
@@ -131,6 +131,52 @@ int MenuGrille(int difficulte, char* nomjoueur) {
         printf("# 2) Coeur\n");
         printf("# 3) Diamant\n");
         printf("# 0) Retour\n");
+        printf("#############################  Entrez votre choix  #############################\n");
+        printf("# ");
+        if(scanf("%d", &choix) == 1) {
+            ClearBuffer();
+            if((choix == 1) || (choix == 2) || (choix == 3)) {
+                EffacerEcran();
+                ChargerGrille(difficulte, choix);
+            }
+            else {
+                MenuDifficulte(nomjoueur);
+            }
+        }
+        else {
+            printf("ERREUR: Entrée invalide.\n");
+            MenuGrille(difficulte, nomjoueur);
+        }
+    case MOYEN:
+        printf("# Vous êtes en difficulté moyenne. Vous avez des grilles de 10x10 cases \n");
+        printf("# 1) ???\n"); // TODO
+        printf("# 2) Coeur\n");
+        printf("# 3) ???\n"); // TODO
+        printf("# 0) Retour\n");
+        printf("#############################  Entrez votre choix  #############################\n");
+        printf("# ");
+        if(scanf("%d", &choix) == 1) {
+            ClearBuffer();
+            if((choix == 1) || (choix == 2) || (choix == 3)) {
+                EffacerEcran();
+                ChargerGrille(difficulte, choix);
+            }
+            else {
+                MenuDifficulte(nomjoueur);
+            }
+        }
+        else {
+            printf("ERREUR: Entrée invalide.\n");
+            MenuGrille(difficulte, nomjoueur);
+        }
+    case DIFFICILE:
+        printf("# Vous êtes en difficulté difficile. Vous avez des grilles de 15x15 cases \n");
+        printf("# 1) ???\n"); // TODO
+        printf("# 2) ???\n"); // TODO
+        printf("# 3) ???\n"); // TODO
+        printf("# 0) Retour\n");
+        printf("#############################  Entrez votre choix  #############################\n");
+        printf("# ");
         if(scanf("%d", &choix) == 1) {
             ClearBuffer();
             if((choix == 1) || (choix == 2) || (choix == 3)) {
@@ -152,9 +198,11 @@ int MenuGrille(int difficulte, char* nomjoueur) {
 // Sauvegarde
 int MenuSauvegarde(char* nomjoueur) {
     char reponse;
+    SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n"); // Menu de confirmation de chargement de la sauvegarde
     printf("# Voulez vraiment charger une partie ?\n");
     printf("# O/N \n");
+    printf("#############################  Entrez votre choix  #############################\n");
     printf("# ");
     scanf("%c", &reponse);
     ClearBuffer();
@@ -178,6 +226,7 @@ int MenuSauvegarde(char* nomjoueur) {
 // Historique
 int MenuHistorique(char* nomjoueur) { // Menu pour afficher l'historique, et lancer le tri de celui ci
     int choix;
+    SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
     printf("# 1) Afficher l'historique                                                     #\n");
     printf("# 2) Afficher l'historique trié par ordre croissant                            #\n");
