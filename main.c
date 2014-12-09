@@ -19,6 +19,6 @@ int main()
     InitialiserPartie(&Partie);
     SplahScreen();
     NomJoueur(nomjoueur); // On demande le nom du joueur
-    MenuPrincipal(nomjoueur); // Lancement du menu
+    MenuPrincipal(nomjoueur,&Partie); // Lancement du menu
     return 0;
 }

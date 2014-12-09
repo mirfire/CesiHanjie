@@ -13,7 +13,7 @@
 #include "includes.h"
 
 //FONCTIONS
-int NouvellePartie(char*);
+int NouvellePartie(char*, DonneesPartie*);
 int ChargerGrille(int, int);
 
 

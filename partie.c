@@ -9,27 +9,27 @@
  */
 #include "includes.h"
 
-int NouvellePartie(char* nomjoueur) {
+int NouvellePartie(char* nomjoueur, DonneesPartie* Partie) {
     int difficulte;
-    difficulte = MenuDifficulte(nomjoueur); // On demande la difficulté
+    difficulte = MenuDifficulte(nomjoueur, &Partie); // On demande la difficulté
     if((difficulte != (FACILE || MOYEN || DIFFICILE)) && difficulte != 0) { // On vérifie s'il y a une \x1b[31mERREUR\x1b[0m dans le retour
         printf("\x1b[31mERREUR\x1b[0m: Le choix n'est pas valide !\n"); // Affichage de l'\x1b[31mERREUR\x1b[0m
-        NouvellePartie(nomjoueur); // Retour au début
+        NouvellePartie(nomjoueur, &Partie); // Retour au début
     }
     if(difficulte == 0)
-        MenuPrincipal(nomjoueur);
+        MenuPrincipal(nomjoueur, &Partie);
     switch(difficulte) {
         case FACILE:
-            MenuGrille(FACILE, nomjoueur);
+            MenuGrille(FACILE, nomjoueur, &Partie);
             break;
         case MOYEN:
-            MenuGrille(MOYEN, nomjoueur);
+            MenuGrille(MOYEN, nomjoueur, &Partie);
             break;
         case DIFFICILE:
-            MenuGrille(DIFFICILE, nomjoueur);
+            MenuGrille(DIFFICILE, nomjoueur, &Partie);
             break;
         default:
-            NouvellePartie(nomjoueur);
+            NouvellePartie(nomjoueur, &Partie);
             break;
     }
     return 0;

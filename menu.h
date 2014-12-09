@@ -15,17 +15,17 @@
 // Menus
 void SplahScreen();
 int NomJoueur(char*);
-int MenuPrincipal(char*);
+int MenuPrincipal(char*, DonneesPartie*);
 
 // Jeu
-int MenuDifficulte(char*);
-int MenuGrille(int, char*);
+int MenuDifficulte(char*, DonneesPartie*);
+int MenuGrille(int, char*, DonneesPartie*);
 
 // Sauvegarde
-int MenuSauvegarde(char*);
+int MenuSauvegarde(char*, DonneesPartie*);
 
 // HISTORIQUE
-int MenuHistorique(char*);
+int MenuHistorique(char*, DonneesPartie*);
 
 // DIVERS
 void EffacerEcran();

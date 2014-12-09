@@ -38,7 +38,7 @@ int NomJoueur(char* nomjoueur) {
     return 0;
 }
 
-int MenuPrincipal(char*nomjoueur) { // Menu principal
+int MenuPrincipal(char*nomjoueur, DonneesPartie *Partie) { // Menu principal
     int choix = 0;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
@@ -54,22 +54,22 @@ int MenuPrincipal(char*nomjoueur) { // Menu principal
         switch(choix) {
         case 1:
             EffacerEcran();
-            NouvellePartie(nomjoueur);
+            NouvellePartie(nomjoueur, &Partie);
             break;
         case 2:
             EffacerEcran();
-            MenuSauvegarde(nomjoueur);
+            MenuSauvegarde(nomjoueur, &Partie);
             break;
         case 3:
             EffacerEcran();
-            MenuHistorique(nomjoueur);
+            MenuHistorique(nomjoueur, &Partie);
             break;
         case 0:
             MenuQuitterJeu();
             break;
         default:
             EffacerEcran();
-            MenuPrincipal(nomjoueur);
+            MenuPrincipal(nomjoueur, &Partie);
             break;
         }
     }
@@ -80,7 +80,7 @@ int MenuPrincipal(char*nomjoueur) { // Menu principal
 }
 
 // Jeu
-int MenuDifficulte(char* nomjoueur) { // Menu de choix de la difficulté
+int MenuDifficulte(char* nomjoueur, DonneesPartie* Partie) { // Menu de choix de la difficulté
     int choix;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
@@ -105,11 +105,11 @@ int MenuDifficulte(char* nomjoueur) { // Menu de choix de la difficulté
             break;
         case 0:
             EffacerEcran();
-            MenuPrincipal(nomjoueur);
+            MenuPrincipal(nomjoueur, &Partie);
             break;
         default:
             EffacerEcran();
-            MenuDifficulte(nomjoueur);
+            MenuDifficulte(nomjoueur, &Partie);
             break;
         }
     }
@@ -119,7 +119,7 @@ int MenuDifficulte(char* nomjoueur) { // Menu de choix de la difficulté
     return 4;
 }
 
-int MenuGrille(int difficulte, char* nomjoueur) { // Menu de choix des grilles en fonction de la difficulté
+int MenuGrille(int difficulte, char* nomjoueur, DonneesPartie* Partie) { // Menu de choix des grilles en fonction de la difficulté
     EffacerEcran();
     int choix;
     switch(difficulte) {
@@ -142,17 +142,17 @@ int MenuGrille(int difficulte, char* nomjoueur) { // Menu de choix des grilles e
             }
             else if(choix == 0) {
                 EffacerEcran();
-                MenuDifficulte(nomjoueur);
+                MenuDifficulte(nomjoueur, &Partie);
             }
             else {
                 EffacerEcran();
                 printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-                MenuGrille(difficulte, nomjoueur);
+                MenuGrille(difficulte, nomjoueur, &Partie);
             }
         }
         else {
             printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-            MenuGrille(difficulte, nomjoueur);
+            MenuGrille(difficulte, nomjoueur, &Partie);
         }
     case MOYEN:
         EffacerEcran();
@@ -173,17 +173,17 @@ int MenuGrille(int difficulte, char* nomjoueur) { // Menu de choix des grilles e
             }
             else if(choix == 0) {
                 EffacerEcran();
-                MenuDifficulte(nomjoueur);
+                MenuDifficulte(nomjoueur, &Partie);
             }
             else {
                 EffacerEcran();
                 printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-                MenuGrille(difficulte, nomjoueur);
+                MenuGrille(difficulte, nomjoueur, &Partie);
             }
         }
         else {
             printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-            MenuGrille(difficulte, nomjoueur);
+            MenuGrille(difficulte, nomjoueur, &Partie);
         }
     case DIFFICILE:
         EffacerEcran();
@@ -204,24 +204,24 @@ int MenuGrille(int difficulte, char* nomjoueur) { // Menu de choix des grilles e
             }
             else if(choix == 0) {
                 EffacerEcran();
-                MenuDifficulte(nomjoueur);
+                MenuDifficulte(nomjoueur, &Partie);
             }
             else {
                 EffacerEcran();
                 printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-                MenuGrille(difficulte, nomjoueur);
+                MenuGrille(difficulte, nomjoueur, &Partie);
             }
         }
         else {
             printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-            MenuGrille(difficulte, nomjoueur);
+            MenuGrille(difficulte, nomjoueur, &Partie);
         }
     }
     return 0;
 }
 
 // Sauvegarde
-int MenuSauvegarde(char* nomjoueur) {
+int MenuSauvegarde(char* nomjoueur, DonneesPartie *Partie) {
     char reponse;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n"); // Menu de confirmation de chargement de la sauvegarde
@@ -237,19 +237,19 @@ int MenuSauvegarde(char* nomjoueur) {
         printf("# Retour au menu...\n");
         sleep(2);
         EffacerEcran();
-        MenuPrincipal(nomjoueur);
+        MenuPrincipal(nomjoueur, &Partie);
     }
     else {
         printf("# Retour au menu...\n");
         sleep(2);
         EffacerEcran();
-        MenuPrincipal(nomjoueur);
+        MenuPrincipal(nomjoueur, &Partie);
     }
     return 0;
 }
 
 // Historique
-int MenuHistorique(char* nomjoueur) { // Menu pour afficher l'historique, et lancer le tri de celui ci
+int MenuHistorique(char* nomjoueur, DonneesPartie* Partie) { // Menu pour afficher l'historique, et lancer le tri de celui ci
     int choix;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
@@ -276,15 +276,15 @@ int MenuHistorique(char* nomjoueur) { // Menu pour afficher l'historique, et lan
                 break;
             case 0:
                 EffacerEcran();
-                MenuPrincipal(nomjoueur);
+                MenuPrincipal(nomjoueur, &Partie);
                 break;
             default:
                 EffacerEcran();
-                MenuHistorique(nomjoueur);
+                MenuHistorique(nomjoueur, &Partie);
                 break;
         }
     }
-    MenuHistorique(nomjoueur);
+    MenuHistorique(nomjoueur, &Partie);
     return 0;
 }
 
