@@ -13,5 +13,6 @@
 #include "includes.h"
 
 int ChargerPartie(char*);
+int test();
 
 #endif // HEADER_SAUVEGARDE

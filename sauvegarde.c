@@ -11,7 +11,7 @@
 
 int test() {
  FILE* fichier = NULL;
-    fichier = fopen("fichiersauvegarge", "r+");
+    fichier = fopen("fichiersauvegarge.txt", "r+");
     if (fichier != NULL)
     {
         // On peut lire et écrire dans le fichier
@@ -19,7 +19,7 @@ int test() {
     else
     {
         // On affiche un message d'\x1b[31mERREUR\x1b[0m si on veut
-        printf("Impossible d'ouvrir le fichier test.txt");
+        printf("Impossible d'ouvrir le fichier fichier sauvegarde.txt.txt");
     }
     return 0;
 
