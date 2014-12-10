@@ -36,6 +36,7 @@ int EditerHistorique (DonneesPartie* Partie){ // a éditer pour avoir la
         fprintf(fichier, "ceci est un test pour %s", Partie->nomjoueur);
         fclose(fichier);
     }
+    return 0;
 }
 
 void HistoriqueCroissant() {}

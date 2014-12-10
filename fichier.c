@@ -16,3 +16,18 @@ int SauterLigne( FILE * fichier) {// Fonction qui permet de sauter une ligne
     }
     return 0;
 }
+
+int ObtenirCote(char* chemin) {
+    FILE * fichier;
+    fichier = NULL;
+    fichier = fopen(chemin, "r");
+    SauterLigne(fichier);
+    SauterLigne(fichier);
+    char temp[2];
+    fgets(temp, 2, fichier);
+}
+
+int LirePBM() {
+    return 0;
+}
+

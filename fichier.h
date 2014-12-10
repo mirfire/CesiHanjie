@@ -12,6 +12,8 @@
  */
 #include "includes.h"
 
-int SauterLigne( FILE * fichier);
+int SauterLigne(FILE * fichier);
+int ObtenirCote(FILE * fichier);
+int LirePBM(); // TODO
 
 #endif // HEADER_FICHIER
