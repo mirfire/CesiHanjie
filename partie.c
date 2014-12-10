@@ -52,6 +52,7 @@ int ChargerGrille(DonneesPartie* Partie) {
                     strcat(chemin, "smiley.pbm");
                     break;
             }
+            break;
         case DIFFICILE:
             strcat(chemin,"difficile/");
             switch(Partie->grille) {
@@ -65,6 +66,7 @@ int ChargerGrille(DonneesPartie* Partie) {
                     strcat(chemin, "note.pbm");
                     break;
             }
+            break;
     }
     printf("# Chargement de la grille %d, pour la difficulté %d.\n", Partie->grille, Partie->difficulte);
     printf("# Elle est située au chemin : %s\n", chemin);
@@ -72,7 +74,7 @@ int ChargerGrille(DonneesPartie* Partie) {
     fichier = fopen(chemin, "r");
     if (fichier != NULL) {
         printf("# Fichier chargé avec succès !\n");
-        printf("# La grille fait %d cases de côté.\n", ObtenirCote(fichier));
+        printf("# La grille fait %d cases de côté.\n", ObtenirCote(chemin));
         printf("LirePBM():\n"); // TODO
         fclose(fichier);
     }

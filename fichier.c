@@ -23,8 +23,23 @@ int ObtenirCote(char* chemin) {
     fichier = fopen(chemin, "r");
     SauterLigne(fichier);
     SauterLigne(fichier);
-    char temp[2];
-    fgets(temp, 2, fichier);
+    char temp[3];
+    fgets(temp, 3, fichier);
+    switch(temp[1]) {
+        case 32:
+            return 5;
+            break;
+        case 48:
+            return 10;
+            break;
+        case 53:
+            return 15;
+            break;
+        default:
+            printf("ERREUR");
+            break;
+    }
+    return 0;
 }
 
 int LirePBM() {

@@ -13,7 +13,7 @@
 #include "includes.h"
 
 int SauterLigne(FILE * fichier);
-int ObtenirCote(FILE * fichier);
+int ObtenirCote(char* chemin);
 int LirePBM(); // TODO
 
 #endif // HEADER_FICHIER
