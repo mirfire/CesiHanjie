@@ -15,9 +15,32 @@
 // ENUMS
 typedef enum Difficulte Difficulte;
 enum Difficulte {
-    FACILE = 1, MOYEN = 2, DIFFICILE = 3
+    FACILE = 1,
+    MOYEN = 2,
+    DIFFICILE = 3
 };
 
+typedef enum GrilleFacile GrilleFacile;
+enum GrilleFacile {
+    A = 1,
+    COEUR = 2,
+    DIAMANT = 3
+};
+
+
+typedef enum GrilleMoyen GrilleMoyen;
+enum GrilleMoyen {
+    ETOILE = 1,
+    COEURV2 = 2,
+    SMILEY = 3
+};
+
+typedef enum GrilleDifficile GrilleDifficile;
+enum GrilleDifficile {
+    CHAMPIGNON = 1,
+    CREEPER = 2,
+    NOTE = 3
+};
 
 // STRUCTURES
 typedef struct DonneesPartie DonneesPartie;
