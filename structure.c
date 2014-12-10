@@ -11,15 +11,13 @@
 
 void InitialiserPartie(DonneesPartie* Partie) {
     int i = 0;
-    for (i = 0 ; i < 51 ; i++)
-    {
+    for (i = 0 ; i < 51 ; i++) {
         Partie->nomjoueur[i] = 0;
     }
     Partie->difficulte = 0;
     Partie->grille = 0;
     i = 0;
-    for (i = 0 ; i < 2 ; i++)
-    {
+    for (i = 0 ; i < 2 ; i++) {
         Partie->heuredepart[i] = 0;
         Partie->minutedepart[i] = 0;
         Partie->secondedepart[i] = 0;
