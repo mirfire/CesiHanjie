@@ -68,6 +68,14 @@ int ChargerGrille(DonneesPartie* Partie) {
     }
     printf("# Chargement de la grille %d, pour la difficulté %d.\n", Partie->grille, Partie->difficulte);
     printf("# Elle est située au chemin : %s\n", chemin);
+    FILE* fichier = NULL;
+    fichier = fopen(chemin, "r");
+    if (fichier != NULL) {
+        printf("# Fichier chargé avec succès !\n");
+        fclose(fichier);
+    }
+    else
+        printf("\x1b[31mERREUR\x1b[0m: Le fichier n'a pas été ouvert.\n");
     sleep(3);
     return 0;
 }
