@@ -11,7 +11,7 @@
 
 void InitialiserPartie(DonneesPartie* Partie) {
     int i = 0;
-    for (i = 0 ; i < 50 ; i++)
+    for (i = 0 ; i < 51 ; i++)
     {
         Partie->nomjoueur[i] = 0;
     }

@@ -12,13 +12,13 @@
 int main()
 {
     // VARIABLES
-    char nomjoueur[50]; // Définition de la variables du nom du joueur
-    DonneesPartie Partie;
+    DonneesPartie *Partie, AdressePartie;
+    Partie = &AdressePartie;
 
     // FONCTIONS
-    InitialiserPartie(&Partie);
+    InitialiserPartie(Partie);
     SplahScreen();
-    NomJoueur(nomjoueur); // On demande le nom du joueur
-    MenuPrincipal(nomjoueur,&Partie); // Lancement du menu
+    NomJoueur(Partie->nomjoueur); // On demande le nom du joueur
+    MenuPrincipal(Partie); // Lancement du menu
     return 0;
 }

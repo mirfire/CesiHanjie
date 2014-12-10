@@ -22,7 +22,7 @@ enum Difficulte {
 // STRUCTURES
 typedef struct DonneesPartie DonneesPartie;
 struct DonneesPartie {
-    char nomjoueur[50];
+    char nomjoueur[51];
     int difficulte;
     int grille;
     char heuredepart[2];
@@ -31,11 +31,10 @@ struct DonneesPartie {
     char heurefin[2];
     char minutefin[2];
     char secondefin[2];
-    int ** casegrises[];
 };
 /* Pour le stockage de la partie, on stocke la difficulté et la grille.
- * Du coup, pour vérifier si c'est bon, il suffit de recharger la grille
- * en mémoire et de comparer le tablea casegrises au tableau de la grille
+ * Du coup, pour vérifier si c'est bon, on utilisera un fichier temporaire,
+ * qui sera comparé avec le fichier pbm
  */
 
 

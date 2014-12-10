@@ -13,8 +13,8 @@
 #include "includes.h"
 
 //FONCTIONS
-int NouvellePartie(char*, DonneesPartie*);
-int ChargerGrille(int, int);
+int NouvellePartie(DonneesPartie*);
+int ChargerGrille(DonneesPartie*);
 
 
 #endif // HEADER_PARTIE

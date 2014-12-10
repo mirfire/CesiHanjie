@@ -28,7 +28,7 @@ int NomJoueur(char* nomjoueur) {
     printf("# Quel est votre nom ?                                                         #\n"); // pour le stocker dans un tableau
     printf("#############################  Entrez votre choix  #############################\n");
     printf("# ");
-    fgets(nomjoueur, 50, stdin);  // Fgets permet de tronquer automatiquement s'il y a plus de 50 caractères
+    fgets(nomjoueur, 51, stdin);  // Fgets permet de tronquer automatiquement s'il y a plus de 50 caractères
     EffacerEcran();
     if(strlen(nomjoueur) < 4) {
         printf("\x1b[31mERREUR\x1b[0m: Rentrez un nom supérieur à 3 caractères.\n");
@@ -38,11 +38,11 @@ int NomJoueur(char* nomjoueur) {
     return 0;
 }
 
-int MenuPrincipal(char*nomjoueur, DonneesPartie *Partie) { // Menu principal
+int MenuPrincipal(DonneesPartie *Partie) { // Menu principal
     int choix = 0;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
-    printf("# Joueur : %s", nomjoueur);
+    printf("# Joueur : %s", Partie->nomjoueur);
     printf("# 1) Nouvelle Partie                                                           #\n");
     printf("# 2) Charger Partie                                                            #\n");
     printf("# 3) Voir l'historique                                                         #\n");
@@ -54,22 +54,22 @@ int MenuPrincipal(char*nomjoueur, DonneesPartie *Partie) { // Menu principal
         switch(choix) {
         case 1:
             EffacerEcran();
-            NouvellePartie(nomjoueur, &Partie);
+            NouvellePartie(Partie);
             break;
         case 2:
             EffacerEcran();
-            MenuSauvegarde(nomjoueur, &Partie);
+            MenuSauvegarde(Partie);
             break;
         case 3:
             EffacerEcran();
-            MenuHistorique(nomjoueur, &Partie);
+            MenuHistorique(Partie);
             break;
         case 0:
             MenuQuitterJeu();
             break;
         default:
             EffacerEcran();
-            MenuPrincipal(nomjoueur, &Partie);
+            MenuPrincipal(Partie);
             break;
         }
     }
@@ -80,7 +80,8 @@ int MenuPrincipal(char*nomjoueur, DonneesPartie *Partie) { // Menu principal
 }
 
 // Jeu
-int MenuDifficulte(char* nomjoueur, DonneesPartie* Partie) { // Menu de choix de la difficulté
+int MenuDifficulte(DonneesPartie* Partie) { // Menu de choix de la difficulté
+    Partie->difficulte = 0;
     int choix;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
@@ -95,34 +96,36 @@ int MenuDifficulte(char* nomjoueur, DonneesPartie* Partie) { // Menu de choix de
         ClearBuffer();
         switch(choix) {
         case 1:
-            return FACILE;
+            Partie->difficulte = FACILE;
             break;
         case 2:
-            return MOYEN;
+            Partie->difficulte =  MOYEN;
             break;
         case 3:
-            return DIFFICILE;
+            Partie->difficulte =  DIFFICILE;
             break;
         case 0:
             EffacerEcran();
-            MenuPrincipal(nomjoueur, &Partie);
+            MenuPrincipal(Partie);
             break;
         default:
             EffacerEcran();
-            MenuDifficulte(nomjoueur, &Partie);
+            printf("\x1b[31mERREUR\x1b[0m : Entrée invalide.\n");
+            MenuDifficulte(Partie);
             break;
         }
     }
     else {
         printf("\x1b[31mERREUR\x1b[0m : Impossible de lire l'entrée.\n");
     }
-    return 4;
+    return 0;
 }
 
-int MenuGrille(int difficulte, char* nomjoueur, DonneesPartie* Partie) { // Menu de choix des grilles en fonction de la difficulté
+int MenuGrille(DonneesPartie* Partie) { // Menu de choix des grilles en fonction de la difficulté
     EffacerEcran();
+    Partie->grille = 0;
     int choix;
-    switch(difficulte) {
+    switch(Partie->difficulte) {
     case FACILE:
         EffacerEcran();
         SplahScreen();
@@ -137,23 +140,24 @@ int MenuGrille(int difficulte, char* nomjoueur, DonneesPartie* Partie) { // Menu
         if(scanf("%d", &choix) == 1) {
             ClearBuffer();
             if((choix == 1) || (choix == 2) || (choix == 3)) {
+                Partie->grille = choix;
                 EffacerEcran();
-                ChargerGrille(difficulte, choix);
             }
             else if(choix == 0) {
                 EffacerEcran();
-                MenuDifficulte(nomjoueur, &Partie);
+                MenuDifficulte(Partie);
             }
             else {
                 EffacerEcran();
                 printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-                MenuGrille(difficulte, nomjoueur, &Partie);
+                MenuGrille(Partie);
             }
         }
         else {
             printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-            MenuGrille(difficulte, nomjoueur, &Partie);
+            MenuGrille(Partie);
         }
+        break;
     case MOYEN:
         EffacerEcran();
         SplahScreen();
@@ -168,23 +172,24 @@ int MenuGrille(int difficulte, char* nomjoueur, DonneesPartie* Partie) { // Menu
         if(scanf("%d", &choix) == 1) {
             ClearBuffer();
             if((choix == 1) || (choix == 2) || (choix == 3)) {
+                Partie->grille = choix;
                 EffacerEcran();
-                ChargerGrille(difficulte, choix);
             }
             else if(choix == 0) {
                 EffacerEcran();
-                MenuDifficulte(nomjoueur, &Partie);
+                MenuDifficulte(Partie);
             }
             else {
                 EffacerEcran();
                 printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-                MenuGrille(difficulte, nomjoueur, &Partie);
+                MenuGrille(Partie);
             }
         }
         else {
             printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-            MenuGrille(difficulte, nomjoueur, &Partie);
+            MenuGrille(Partie);
         }
+        break;
     case DIFFICILE:
         EffacerEcran();
         SplahScreen();
@@ -199,29 +204,30 @@ int MenuGrille(int difficulte, char* nomjoueur, DonneesPartie* Partie) { // Menu
         if(scanf("%d", &choix) == 1) {
             ClearBuffer();
             if((choix == 1) || (choix == 2) || (choix == 3)) {
+                Partie->grille = choix;
                 EffacerEcran();
-                ChargerGrille(difficulte, choix);
             }
             else if(choix == 0) {
                 EffacerEcran();
-                MenuDifficulte(nomjoueur, &Partie);
+                MenuDifficulte(Partie);
             }
             else {
                 EffacerEcran();
                 printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-                MenuGrille(difficulte, nomjoueur, &Partie);
+               MenuGrille(Partie);
             }
         }
         else {
             printf("\x1b[31mERREUR\x1b[0m: Entrée invalide.\n");
-            MenuGrille(difficulte, nomjoueur, &Partie);
+            MenuGrille(Partie);
         }
+        break;
     }
     return 0;
 }
 
 // Sauvegarde
-int MenuSauvegarde(char* nomjoueur, DonneesPartie *Partie) {
+int MenuSauvegarde(DonneesPartie *Partie) {
     char reponse;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n"); // Menu de confirmation de chargement de la sauvegarde
@@ -237,19 +243,19 @@ int MenuSauvegarde(char* nomjoueur, DonneesPartie *Partie) {
         printf("# Retour au menu...\n");
         sleep(2);
         EffacerEcran();
-        MenuPrincipal(nomjoueur, &Partie);
+        MenuPrincipal(Partie);
     }
     else {
         printf("# Retour au menu...\n");
         sleep(2);
         EffacerEcran();
-        MenuPrincipal(nomjoueur, &Partie);
+        MenuPrincipal(Partie);
     }
     return 0;
 }
 
 // Historique
-int MenuHistorique(char* nomjoueur, DonneesPartie* Partie) { // Menu pour afficher l'historique, et lancer le tri de celui ci
+int MenuHistorique(DonneesPartie* Partie) { // Menu pour afficher l'historique, et lancer le tri de celui ci
     int choix;
     SplahScreen();
     printf("##############################  Cesi Hanjie v0.2  ##############################\n");
@@ -276,15 +282,15 @@ int MenuHistorique(char* nomjoueur, DonneesPartie* Partie) { // Menu pour affich
                 break;
             case 0:
                 EffacerEcran();
-                MenuPrincipal(nomjoueur, &Partie);
+                MenuPrincipal(Partie);
                 break;
             default:
                 EffacerEcran();
-                MenuHistorique(nomjoueur, &Partie);
+                MenuHistorique(Partie);
                 break;
         }
     }
-    MenuHistorique(nomjoueur, &Partie);
+    MenuHistorique(Partie);
     return 0;
 }
 
