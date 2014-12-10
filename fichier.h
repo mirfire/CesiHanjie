@@ -12,5 +12,13 @@
  */
 #include "includes.h"
 
+int SauterLigne( FILE * fichier) {// Fonction qui permet de sauter une ligne
+    char temp = 0; // On stocke un caractère tampon
+    while(temp != '\n') {
+        temp = fgetc(fichier);
+    }
+    return 0;
+}
+
 
 #endif // HEADER_FICHIER
