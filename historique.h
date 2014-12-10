@@ -13,7 +13,7 @@
 #include "includes.h"
 
 void AfficherHistorique();
-
+int EditerHistorique(DonneesPartie*);
 void HistoriqueCroissant();
 
 void HistoriqueDecroissant();

@@ -29,5 +29,28 @@ void AfficherHistorique()
     }
 }
 
+int EditerHistorique (DonneesPartie* Partie){ // a éditer pour avoir la
+
+FILE* fichier=NULL ;
+fichier=fopen("historique.txt", "a");
+
+if(fichier!= NULL){
+
+fprintf(fichier, "ceci est un test pour %s", Partie->nomjoueur);
+
+fclose(fichier);
+
+
+}
+
+
+
+
+
+
+
+
+}
+
 void HistoriqueCroissant() {}
 void HistoriqueDecroissant() {}
