@@ -32,8 +32,15 @@ int EditerHistorique (DonneesPartie* Partie){ // a éditer pour avoir la
     FILE* fichier=NULL ;
     fichier=fopen("historique.txt", "a");
 
+    struct tm* gmtime (const time_t *temps);
+    time_t mktime (struct tm *structure);
+    time_t temps;
+    struct tm date;
+    time(&temps);
+    date=*gmtime(&temps);
+
     if(fichier!= NULL){
-        fprintf(fichier, "ceci est un test pour %s", Partie->nomjoueur);
+        fprintf(fichier, "%d/%d/%d;%d:%d:%d;%s;1;%d",date.tm_mday, date.tm_mon+1,1900+date.tm_year, date.tm_hour+1 , date.tm_min, date.tm_sec, Partie->nomjoueur, Partie->difficulte, );
         fclose(fichier);
     }
     return 0;
