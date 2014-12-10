@@ -72,7 +72,7 @@ int ChargerGrille(DonneesPartie* Partie) {
     fichier = fopen(chemin, "r");
     if (fichier != NULL) {
         printf("# Fichier chargé avec succès !\n");
-        printf("LirePBM():\n") // TODO
+        printf("LirePBM():\n"); // TODO
         fclose(fichier);
     }
     else
