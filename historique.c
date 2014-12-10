@@ -9,6 +9,25 @@
  */
 #include "includes.h"
 
-void AfficherHistorique() {}
+ // Affichage de historique.txt
+void AfficherHistorique()
+{
+    char caractereactuel;
+    FILE* fichier = NULL ;
+    fichier = fopen("historique.txt" , "r+"); // ouverture du fichier
+    if (fichier != NULL)
+    {
+        do {
+            caractereactuel = fgetc (fichier) ;// lecture des caracteres
+            printf("%c" , caractereactuel); // Affichage !
+        }
+        while (caractereactuel != EOF); // Fin de fichier
+        {
+            fclose(fichier);
+
+        }
+    }
+}
+
 void HistoriqueCroissant() {}
 void HistoriqueDecroissant() {}
