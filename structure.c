@@ -30,12 +30,12 @@ void InitialiserPartie(DonneesPartie* Partie) { // On initialise la structure à
 }
 
 void InitialiserTableauPartie(DonneesPartie* Partie) { // On l'initialise avec cette fonction
-    Partie->tableau = (char***)calloc(sizeof(char**) * Partie->taillegrille); // Longueur
+    Partie->tableau = (char***)malloc(sizeof(char**) * Partie->taillegrille); // Longueur
     int i = 0, j = 0;
     for(i=0; i < Partie->taillegrille; i++) {
-        Partie[i].tableau = (char**)calloc(sizeof(char*) * Partie->taillegrille); // Largeur
+        Partie[i].tableau = (char**)malloc(sizeof(char*) * Partie->taillegrille); // Largeur
         for(j=0; j < Partie->taillegrille; j++) {
-           Partie[j].tableau = (char*)calloc(sizeof(char) * 3); // Hauteur, il y a donc 3 couches
+           Partie[j].tableau = (char*)malloc(sizeof(char) * 3); // Hauteur, il y a donc 3 couches
         }
     }
     if(Partie->tableau == NULL)
