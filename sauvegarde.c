@@ -10,32 +10,36 @@
 #include "includes.h"
 
 int EditerFichierSauvegarde(DonneesPartie* Partie) {
-    FILE* fichier = NULL;
-    DIR* dossier = NULL;
-    char chemin[100];
-    int i = 0;
+    FILE* fichier = NULL; // Pointeur du fichier de sauvegarde
+    DIR* dossier = NULL; // Pointeur du dossier
+    char chemin[100]; // Tableau contenant le chemin
+    int i = 0; // Initialisation du tableau
     for (i = 0 ; i < 51 ; i++) {
         chemin[i] = 0;
     }
-    strcat(chemin, "saves/");
-    dossier = opendir(chemin);
+    strcat(chemin, "saves/"); // On ajoute "saves/" au chemin
+    dossier = opendir(chemin); // On ouvre r le dossier saves
     if(dossier == NULL) {
-        mkdir("./saves/",0775);
+        mkdir("./saves/",0775); // S'il n'existe pas, on le crée
+        dossier = opendir(chemin); // Puis on l'ouvre...
     }
-    strcat(chemin, Partie->nomjoueur);
-    strcat(chemin, ".bin");
+    dossier = closedir(dossier); // ... Pour le refermer
+    strcat(chemin, Partie->nomjoueur); // On ajoute le nom du joueur au chemin
+    strcat(chemin, ".bin"); // Et enfin on ajoute l'extension
     fichier = fopen(chemin, "w+");
     if (fichier != NULL)
     {
-        fprintf(fichier,"%s",Partie->nomjoueur); // On peut lire et écrire dans le fichier
+        fprintf(fichier,"%s",Partie->nomjoueur); // On écrit dans le dossier
     }
     else
     {
-        // On affiche un message d'\x1b[31mERREUR\x1b[0m si on veut
+        // On affiche un message d'erreur
         printf("\x1b[31mERREUR\x1b[0m: Impossible d'ouvrir le fichier fichier %s", chemin);
     }
     return 0;
 
 }
 
-int ChargerPartie(char * tableau) {return 0;}
+int ChargerPartie(char * tableau) {
+    return 0;
+}
