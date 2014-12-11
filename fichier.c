@@ -42,7 +42,17 @@ int ObtenirCote(char* chemin) {
     return 0;
 }
 
-int LirePBM() {
+int LirePBM(char* chemin, DonneesPartie* Partie) {
+    char tampon;
+    FILE * fichier;
+    fichier = NULL;
+    fichier = fopen(chemin, "r");
+    SauterLigne(fichier);
+    SauterLigne(fichier);
+    SauterLigne(fichier); // On se place sur la ligne qui contient les données de cases
+    do {
+        tampon = fgetc()
+    }
     return 0;
 }
 

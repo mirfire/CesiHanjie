@@ -27,3 +27,14 @@ void InitialiserPartie(DonneesPartie* Partie) { // On initialise la structure à
         Partie->secondefin[i] = 0;
     }
 }
+
+void InitialiserTableauPartie(DonneesPartie* Partie) {
+    Partie->tableau = (char***)malloc(sizeof(char**) * Partie->taillegrille);
+    int i = 0, j = 0;
+    for(i=0; i < Partie->taillegrille; i++) {
+        Partie[i].tableau = (char**)malloc(sizeof(char*) * Partie->taillegrille);
+        for(j=0; j < Partie->taillegrille; j++) {
+           Partie[j].tableau = (char*)malloc(sizeof(char) * Partie->taillegrille);
+        }
+    }
+}

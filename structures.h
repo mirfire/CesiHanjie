@@ -65,6 +65,7 @@ struct DonneesPartie {
 
 // FONCTION STRUCTURE
 void InitialiserPartie(DonneesPartie*);
+void InitialiserTableauPartie(DonneesPartie*);
 
 #endif // HEADER_STRUCTURES
 

@@ -23,7 +23,7 @@ int EditerFichierSauvegarde(DonneesPartie* Partie) {
         mkdir("./saves/",0775); // S'il n'existe pas, on le crée
         dossier = opendir(chemin); // Puis on l'ouvre...
     }
-    dossier = closedir(dossier); // ... Pour le refermer
+    closedir(dossier); // ... Pour le refermer
     strcat(chemin, Partie->nomjoueur); // On ajoute le nom du joueur au chemin
     strcat(chemin, ".bin"); // Et enfin on ajoute l'extension
     fichier = fopen(chemin, "w+");
