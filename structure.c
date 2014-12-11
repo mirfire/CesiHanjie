@@ -16,6 +16,7 @@ void InitialiserPartie(DonneesPartie* Partie) { // On initialise la structure à
     }
     Partie->difficulte = 0;
     Partie->grille = 0;
+    Partie->taillegrille = 0;
     i = 0;
     for (i = 0 ; i < 2 ; i++) {
         Partie->heuredepart[i] = 0;

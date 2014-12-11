@@ -48,6 +48,7 @@ struct DonneesPartie {
     char nomjoueur[51];
     int difficulte;
     int grille;
+    int taillegrille;
     char heuredepart[2];
     char minutedepart[2];
     char secondedepart[2];
