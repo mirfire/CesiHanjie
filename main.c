@@ -20,6 +20,5 @@ int main()
     SplahScreen();
     NomJoueur(Partie->nomjoueur); // On demande le nom du joueur
     MenuPrincipal(Partie); // Lancement du menu
-    EditerHistorique (Partie);
     return 0;
 }
