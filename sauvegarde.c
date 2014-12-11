@@ -9,7 +9,7 @@
  */
 #include "includes.h"
 
-int test() {
+int EditerFichierSauvegarde(DonneesPartie* Partie) {
  FILE* fichier = NULL;
     fichier = fopen("fichiersauvegarge.bin", "r+");
     if (fichier != NULL)

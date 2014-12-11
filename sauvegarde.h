@@ -12,6 +12,7 @@
  */
 #include "includes.h"
 
+int EditerFichierSauvegarde(DonneesPartie*);
 int ChargerPartie(char*);
 int test();
 
