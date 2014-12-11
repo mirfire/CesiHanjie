@@ -19,6 +19,7 @@ int main()
     InitialiserPartie(Partie);
     SplahScreen();
     NomJoueur(Partie->nomjoueur); // On demande le nom du joueur
+    EditerFichierSauvegarde(Partie);
     MenuPrincipal(Partie); // Lancement du menu
     return 0;
 }

@@ -55,6 +55,7 @@ struct DonneesPartie {
     char heurefin[2];
     char minutefin[2];
     char secondefin[2];
+    char *** tableau;
 };
 /* Pour le stockage de la partie, on stocke la difficulté et la grille.
  * Du coup, pour vérifier si c'est bon, on utilisera un fichier temporaire,
