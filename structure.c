@@ -9,7 +9,7 @@
  */
 #include "includes.h"
 
-void InitialiserPartie(DonneesPartie* Partie) {
+void InitialiserPartie(DonneesPartie* Partie) { // On initialise la structure à 0
     int i = 0;
     for (i = 0 ; i < 51 ; i++) {
         Partie->nomjoueur[i] = 0;
