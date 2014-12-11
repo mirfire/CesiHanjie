@@ -16,7 +16,7 @@ void AfficherHistorique()
 
 int EditerHistorique (DonneesPartie* Partie){ // a éditer pour avoir la
     FILE* fichier=NULL ;
-    fichier=fopen("historique.txt", "a");
+    fichier=fopen("historique.bin", "a");
 
     struct tm* gmtime (const time_t *temps);
     time_t mktime (struct tm *structure);
@@ -34,7 +34,7 @@ int EditerHistorique (DonneesPartie* Partie){ // a éditer pour avoir la
 
 int i = 0 ; int j= 0 ;
 FILE* fichier = NULL;
-fichier = fopen("historique.txt","r");
+fichier = fopen("historique.bin","r");
 char tabsave [5] [TAILLE_MAX];
 
 if(fichier != NULL)
