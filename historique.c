@@ -11,10 +11,11 @@
 #define TAILLE_MAX 100
 
  // Affichage de historique.txt
-void AfficherHistorique()
-{
+void AfficherHistorique() {
 
-int EditerHistorique (DonneesPartie* Partie){ // a éditer pour avoir la
+}
+
+int EditerHistorique(DonneesPartie* Partie){ // a éditer pour avoir la
     FILE* fichier=NULL ;
     fichier=fopen("historique.txt", "a");
 
@@ -32,18 +33,22 @@ int EditerHistorique (DonneesPartie* Partie){ // a éditer pour avoir la
     return 0;
 }
 
-int i = 0 ; int j= 0 ;
-FILE* fichier = NULL;
-fichier = fopen("historique.txt","r");
-char tabsave [5] [TAILLE_MAX];
+int HistoriqueVersTableau() {
+    int i = 0 ;
+    FILE* fichier = NULL;
+    fichier = fopen("historique.txt","r");
+    char tabsave [5] [TAILLE_MAX];
 
-if(fichier != NULL)
-printf("Sauvegarde des parties récentes :\n");
-while (fgets (tabsave [i] , TAILLE_MAX , fichier) != NULL ) {i++;}
-
-return 0;
+    if(fichier != NULL)
+    printf("Sauvegarde des parties récentes :\n");
+    while (fgets (tabsave [i] , TAILLE_MAX , fichier) != NULL ) {i++;}
+    return 0;
+}
+void HistoriqueCroissant() {
 
 }
-void HistoriqueCroissant() {}
-void HistoriqueDecroissant() {}
+
+void HistoriqueDecroissant() {
+
+}
 

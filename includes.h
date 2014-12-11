@@ -11,6 +11,7 @@
 #include "partie.h"
 #include "sauvegarde.h"
 #include "historique.h"
+#include "fichier.h"
 
 #endif // HEADER_INCLUDES
 

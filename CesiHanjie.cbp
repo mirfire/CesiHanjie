@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="fichier.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fichier.h" />
 		<Unit filename="historique.c">
 			<Option compilerVar="CC" />
 		</Unit>
