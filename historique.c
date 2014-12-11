@@ -47,12 +47,12 @@ int EditerHistorique(DonneesPartie* Partie){ // Fonction qui va enregistrer les 
 int HistoriqueVersTableau() {
     int i = 0 ; // Compteur
     FILE* fichier = NULL;
-    fichier = fopen("historique.bin","r"); // ouvre le fichier historique.bin
+    fichier = fopen("historique.bin","r"); // Ouvre le fichier historique.bin
     char tabsave [5] [TAILLE_MAX]; // Tableau à 2 dimentions qui permetra de mettre la contenu d'un fichier dans un tableau
 
-    if(fichier != NULL) //Test pour voir si je fichier est bien ouvert
+    if(fichier != NULL) // Test pour voir si je fichier est bien ouvert
         printf("Sauvegarde des parties récentes :\n");
-    while (fgets (tabsave [i] , TAILLE_MAX , fichier) != NULL ) {i++;} //Copie du fichier.bin dans le tableau.
+    while (fgets (tabsave [i] , TAILLE_MAX , fichier) != NULL ) {i++;} // Copie du fichier.bin dans le tableau.
     return 0;
 }
 
