@@ -77,7 +77,7 @@ int ChargerGrille(DonneesPartie* Partie) {
         Partie->taillegrille = ObtenirCote(chemin);
         printf("# La grille fait %d cases de côté.\n", Partie->taillegrille);
         InitialiserTableauPartie(Partie);
-        printf("LirePBM():\n"); // TODO
+        LirePBM(chemin, Partie);
         fclose(fichier);
     }
     else
