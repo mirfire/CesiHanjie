@@ -18,7 +18,7 @@ int EditerFichierSauvegarde(DonneesPartie* Partie) {
         chemin[i] = 0;
     }
     strcat(chemin, "saves/"); // On ajoute "saves/" au chemin
-    dossier = opendir(chemin); // On ouvre r le dossier saves
+    dossier = opendir(chemin); // On ouvre  le dossier saves
     if(dossier == NULL) {
         mkdir("./saves/",0775); // S'il n'existe pas, on le crée
         dossier = opendir(chemin); // Puis on l'ouvre...
@@ -26,10 +26,10 @@ int EditerFichierSauvegarde(DonneesPartie* Partie) {
     closedir(dossier); // ... Pour le refermer
     strcat(chemin, Partie->nomjoueur); // On ajoute le nom du joueur au chemin
     strcat(chemin, ".bin"); // Et enfin on ajoute l'extension
-    fichier = fopen(chemin, "w+");
+    fichier = fopen(chemin, "wb+"); // Lecture écriture + suppression (Bin)
     if (fichier != NULL)
     {
-        fprintf(fichier,"%s",Partie->nomjoueur); // On écrit dans le dossier
+        fprintf(fichier,"%c",Partie->nomjoueur); // On écrit dans le dossier
     }
     else
     {
