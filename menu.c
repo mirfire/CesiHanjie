@@ -31,6 +31,8 @@ int NomJoueur(char* nomjoueur) {
         printf("\x1b[31mERREUR\x1b[0m: Rentrez un nom supérieur à 3 caractères.\n");
         NomJoueur(nomjoueur);
     }
+    char temp = "\n";
+    SupprimerCaractere(nomjoueur, temp);
     EffacerEcran();
     return 0;
 }
@@ -303,8 +305,17 @@ void EffacerEcran() { // Permet d'effacer l'écran sans avoir recours à un appe
 
 void ClearBuffer(void) { // ClearBuffer() permet d'éviter que scanf bug à cause d'un buffer plein
     int c;
-    while ((c=getchar()) != '\n' && c != EOF)
-        ;
+    while ((c=getchar()) != '\n' && c != EOF);
+}
+
+void SupprimerCaractere(char* phrase, char caractere){
+    int i, j = 0;
+    for ( i = 0; phrase[i] != '\0'; i++ ) {
+        if ( phrase[i] != caractere ) {
+            phrase[j++] = phrase[i]; /* 'j' only moves after we write a non-'chr' */
+        }
+    }
+    phrase[j] = '\0'; /* re-null-terminate */
 }
 
 void MenuQuitterJeu() { // Permet de quitter le jeu avec le code 0

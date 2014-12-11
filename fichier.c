@@ -50,9 +50,11 @@ int LirePBM(char* chemin, DonneesPartie* Partie) {
     SauterLigne(fichier);
     SauterLigne(fichier);
     SauterLigne(fichier); // On se place sur la ligne qui contient les données de cases
+    int x = 0, y = 0;
     do {
-        //tampon = fgetc()
+        //tampon = fgetc(fichier);
     }
+    while (1 == 0);
     return 0;
 }
 

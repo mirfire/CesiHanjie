@@ -30,6 +30,7 @@ int MenuHistorique(DonneesPartie*);
 // DIVERS
 void EffacerEcran();
 void ClearBuffer();
+void SupprimerCaractere(char*, char);
 void MenuQuitterJeu();
 
 

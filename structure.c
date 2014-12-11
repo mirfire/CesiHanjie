@@ -26,9 +26,10 @@ void InitialiserPartie(DonneesPartie* Partie) { // On initialise la structure à
         Partie->minutefin[i] = 0;
         Partie->secondefin[i] = 0;
     }
+    // On initialise pas encore le tableau dynamique
 }
 
-void InitialiserTableauPartie(DonneesPartie* Partie) {
+void InitialiserTableauPartie(DonneesPartie* Partie) { // On l'initialise avec cette fonction
     Partie->tableau = (char***)malloc(sizeof(char**) * Partie->taillegrille);
     int i = 0, j = 0;
     for(i=0; i < Partie->taillegrille; i++) {
