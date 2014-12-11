@@ -41,7 +41,7 @@ int EditerHistorique (DonneesPartie* Partie){ // a éditer pour avoir la
     date=*gmtime(&temps);
 
     if(fichier!= NULL){
-        fprintf(fichier, "%d/%d/%d;%d:%d:%d;%s;1;%d",date.tm_mday, date.tm_mon+1,1900+date.tm_year, date.tm_hour+1 , date.tm_min, date.tm_sec, Partie->nomjoueur, Partie->difficulte, );
+        fprintf(fichier, "%d/%d/%d;%d:%d:%d;%s;1;%d",date.tm_mday, date.tm_mon+1,1900+date.tm_year, date.tm_hour+1 , date.tm_min, date.tm_sec, Partie->nomjoueur, Partie->difficulte);
         fclose(fichier);
 
 }
