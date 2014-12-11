@@ -14,8 +14,9 @@
 
 void AfficherHistorique();
 int EditerHistorique(DonneesPartie*);
-void HistoriqueCroissant();
+int HistoriqueVersTableau();
 
+void HistoriqueCroissant();
 void HistoriqueDecroissant();
 
 #endif // HEADER_HISTORIQUE
