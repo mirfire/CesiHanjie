@@ -11,12 +11,17 @@
 
 int EditerFichierSauvegarde(DonneesPartie* Partie) {
     FILE* fichier = NULL;
+    DIR* dossier = NULL;
     char chemin[100];
     int i = 0;
     for (i = 0 ; i < 51 ; i++) {
         chemin[i] = 0;
     }
     strcat(chemin, "saves/");
+    dossier = opendir(chemin);
+    if(dossier == NULL) {
+        mkdir("./saves/",0775);
+    }
     strcat(chemin, Partie->nomjoueur);
     strcat(chemin, ".bin");
     fichier = fopen(chemin, "w+");

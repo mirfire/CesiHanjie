@@ -6,6 +6,10 @@
 #include <unistd.h>
 #include <string.h>
 #include <time.h>
+#include <dirent.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
 #include "structures.h"
 #include "menu.h"
 #include "partie.h"
