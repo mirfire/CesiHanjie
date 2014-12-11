@@ -74,7 +74,8 @@ int ChargerGrille(DonneesPartie* Partie) {
     fichier = fopen(chemin, "r");
     if (fichier != NULL) {
         printf("# Fichier chargé avec succès !\n");
-        printf("# La grille fait %d cases de côté.\n", ObtenirCote(chemin));
+        Partie->taillegrille = ObtenirCote(chemin);
+        printf("# La grille fait %d cases de côté.\n", Partie->taillegrille);
         printf("LirePBM():\n"); // TODO
         fclose(fichier);
     }

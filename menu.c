@@ -38,6 +38,7 @@ int NomJoueur(char* nomjoueur) {
 int MenuPrincipal(DonneesPartie *Partie) { // Menu principal
     int choix = 0;
     SplahScreen();
+    EditerHistorique (Partie);
     printf("##############################  Cesi Hanjie v0.3  ##############################\n");
     printf("# Joueur : %s", Partie->nomjoueur);
     printf("# 1) Nouvelle Partie                                                           #\n");
